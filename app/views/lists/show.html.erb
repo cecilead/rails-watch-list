@@ -1,17 +1,25 @@
+<div class='container-show'>
+  <div class= 'banner-show' style="background-image: url('https://res.cloudinary.com/dpsozxpdq/image/upload/v1700220910/istockphoto-1202770223-170667a_xtyi2s.jpg')">
+  </div>
   <h1> <%= @list.name.capitalize %> </h1>
-  <br>
-  <ul>
-    <% @list.bookmarks.each do |bookmark| %>
-    <li> <%= bookmark.movie.title%> <%=bookmark.comment%>
-     <%= link_to  "Delete", bookmark_path(bookmark),
-      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-    %>
-     </li>
+  <div class="card">
+    <br>
+    <div>
+      <ul>
+        <% @list.bookmarks.each do |bookmark| %>
+        <li> <%= bookmark.movie.title%> <%=bookmark.comment%>
+        <%= link_to "Delete", bookmark_path(bookmark),
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+        %>
+        </li>
 
-    <% end %>
-
-  </ul>
-
-  <br>
-  <%= link_to 'back to lists', lists_path %>
-  <%= link_to 'add a comment', new_list_bookmark_path(@list), class: 'btn btn-flat' %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+    <br>
+  <div class= 'align-btn'>
+    <%= link_to 'back to lists', lists_path, class: 'btn' %>
+    <%= link_to 'add a comment', new_list_bookmark_path(@list), class: 'btn btn-flat' %>
+  </div>
+</div>
